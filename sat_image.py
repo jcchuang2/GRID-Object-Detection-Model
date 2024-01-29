@@ -43,43 +43,62 @@ def save_image(latitude, longitude, zoom, size, scale, key=API_KEY, secret=SECRE
     # Check the response
     if response.status_code == 200:
         # Save the satellite tile image
-        img_name = f'satellite_{latitude}_{longitude}_{zoom}_{scale}.png'
+        img_name = f"satellite_{'{:.5f}'.format(latitude)}_{'{:.5f}'.format(longitude)}.png"
         img_path = 'images/' + img_name
         with open(img_path, 'wb') as file:
             file.write(response.content)
         print(f"Satellite tile image saved as '{img_name}'")
     else:
         print(f"Failed to fetch satellite tile. Status code: {response.status_code}")
+#%%
+if __name__ == "__main__":
+    
+    latitude, longitude = 32.838667, -117.201442
 
-if __name__ == "__main()__":
-    latitude = 37.7749
-    longitude = -122.4194
-
-    # Set the zoom level and image size
     zoom_level = 19
     image_size = "640x640"
-    scale=1
+    scale = 2
 
-    save_image(latitude, longitude, zoom_level, image_size, scale)
+    for i in range(3):
+        save_image(latitude, longitude, zoom_level, image_size, scale)
+        latitude = latitude - 0.001
+        for i in range(9):
+            save_image(latitude, longitude, zoom_level, image_size, scale)
+            longitude = longitude + 0.001
 
-# %%
+'''# %%
 latitude = 32.835719
 longitude = -117.182319
 
 # Set the zoom level and image size
 zoom_level = 19
 image_size = "640x640"
-scale = 1
+scale = 2
 
 save_image(latitude, longitude, zoom_level, image_size, scale)
-# %%
+
 latitude = 32.831148
 longitude = -117.212829
 
 # Set the zoom level and image size
-zoom_level = 20
+zoom_level = 19
 image_size = "640x640"
 scale = 2
 
 save_image(latitude, longitude, zoom_level, image_size, scale)
+
+latitude, longitude = 32.835452, -117.1975
+zoom_level = 19
+image_size = "640x640"
+scale = 2
+
+save_image(latitude, longitude, zoom_level, image_size, scale)'''
 # %%
+latitude, longitude = 32.837417, -117.198148
+
+zoom_level = 19
+image_size = "640x640"
+scale = 2
+
+save_image(latitude, longitude, zoom_level, image_size, scale)
+# %%'''
