@@ -43,8 +43,8 @@ def save_image(latitude, longitude, zoom, size, scale, key=API_KEY, secret=SECRE
     # Check the response
     if response.status_code == 200:
         # Save the satellite tile image
-        img_name = f"satellite_{'{:.5f}'.format(latitude)}_{'{:.5f}'.format(longitude)}.png"
-        img_path = 'images/' + img_name
+        img_name = f"satellite_{'{:.7f}'.format(latitude)}_{'{:.7f}'.format(longitude)}.png"
+        img_path = 'images/NorthClairemont1/' + img_name
         with open(img_path, 'wb') as file:
             file.write(response.content)
         print(f"Satellite tile image saved as '{img_name}'")
@@ -53,52 +53,19 @@ def save_image(latitude, longitude, zoom, size, scale, key=API_KEY, secret=SECRE
 #%%
 if __name__ == "__main__":
     
-    latitude, longitude = 32.838667, -117.201442
+    start_latitude, start_longitude = 32.838667, -117.201442
 
     zoom_level = 19
     image_size = "640x640"
     scale = 2
 
+    coordinates = []
+
     for i in range(3):
-        save_image(latitude, longitude, zoom_level, image_size, scale)
-        latitude = latitude - 0.001
-        for i in range(9):
+        for j in range(9):
+            latitude = start_latitude - 0.0015 * i
+            longitude = start_longitude + 0.0015 * j
             save_image(latitude, longitude, zoom_level, image_size, scale)
-            longitude = longitude + 0.001
+            coordinates += [(float('{:.7f}'.format(latitude)), float('{:.7f}'.format(longitude)))]
 
-'''# %%
-latitude = 32.835719
-longitude = -117.182319
-
-# Set the zoom level and image size
-zoom_level = 19
-image_size = "640x640"
-scale = 2
-
-save_image(latitude, longitude, zoom_level, image_size, scale)
-
-latitude = 32.831148
-longitude = -117.212829
-
-# Set the zoom level and image size
-zoom_level = 19
-image_size = "640x640"
-scale = 2
-
-save_image(latitude, longitude, zoom_level, image_size, scale)
-
-latitude, longitude = 32.835452, -117.1975
-zoom_level = 19
-image_size = "640x640"
-scale = 2
-
-save_image(latitude, longitude, zoom_level, image_size, scale)'''
 # %%
-latitude, longitude = 32.837417, -117.198148
-
-zoom_level = 19
-image_size = "640x640"
-scale = 2
-
-save_image(latitude, longitude, zoom_level, image_size, scale)
-# %%'''
