@@ -1,23 +1,23 @@
 name: grid
 channels:
-  - conda-forge
   - defaults
+  - conda-forge
 dependencies:
-  - python=3.9
-  - pip=23.1.2
+  - python=3.8.8
+  - pip
   - requests
   - ipykernel
   - ipywidgets
-  - openssl=1.1.1w
   - pip:
-    - transformers
     - torch
     - torchvision
-    - scipy
+    - argparse
+    - datetime
+    - pathlib
+    - numpy
     - matplotlib
-    - python-dotenv
-    - pillow
+    - pycocotools
+    - scikit-image
     - pandas
-    - openpyxl
-    - pyproj
-    - tqdm
+    - seaborn
+    - pillow
