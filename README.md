@@ -54,6 +54,9 @@ After the model is finished training, output files will be saved to the `outputs
 ### Visualize Model Results
 Run the cells within the `Model-Visualization.ipynb` file to display image examples of training/validation data as well as graphs on specfiic fields of interest.
 
+### Use Model
+Run `run_model.py` to run the object detection model on an image. Image output with bounding boxes will be saved in `model_results ` directory.
+
 # Project Structure
 
 ```
@@ -66,6 +69,7 @@ Run the cells within the `Model-Visualization.ipynb` file to display image examp
 │           ├── image_split
 │               ├── train
 │               ├── val
+│       ├── model_results
 │
 ├── outputs/              <- Output from model training (do not commit)
 │
@@ -74,6 +78,8 @@ Run the cells within the `Model-Visualization.ipynb` file to display image examp
 ├── .gitignore            <- Git ignore file
 │
 ├── Model-Visualization.ipynb  <- Jupyter Notebook for visualizing model results
+│
+├── run_model.py          <- Python script to run model on an image
 │
 ├── environment.yml       <- Conda environment file
 │
