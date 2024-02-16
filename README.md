@@ -1,6 +1,6 @@
 # GRID - Geographic Reconnaissance for Infrastructure Detection
 
-The goals of this project is to identify SDG&E assets and to quantify the ability to identify risks from dmaaged infrastructure. [DETR](https://github.com/facebookresearch/detr/) will be used to train an object detection model that will be able to identify power poles as well as surface structures while Google StreetView will be used as the publicly accessible data source.
+The goals of this project is to identify SDG&E assets and to quantify the ability to identify risks from damaged infrastructure. [DETR](https://github.com/facebookresearch/detr/) will be used to train an object detection model that will be able to identify power poles while Google Static Maps with satellite view will be used as the publicly accessible data source.
 
 ## Data Sources:
 **Training images** are obtained using the [Google Maps Static API](https://developers.google.com/maps/documentation/maps-static).
@@ -60,7 +60,7 @@ Run `run_model.py` to run the object detection model on an image. Image output w
 # Project Structure
 
 ```
-├── data/                 <- Local data files only (do not commit)
+├── data/
 │   ├── annotations
 │       ├── image_annotations_train.json
 │       ├── image_annotations_val.json
