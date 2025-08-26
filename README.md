@@ -57,6 +57,9 @@ Run the cells within the `Model-Visualization.ipynb` file to display image examp
 ### Use Model
 Run `run_model.py` to run the object detection model on an image. Image output with bounding boxes will be saved in `model_results ` directory.
 
+### Use Map Interface
+Visit [https://github.com/papa-noel/map_user_interface] for instructions.
+
 # Project Structure
 
 ```
